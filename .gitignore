@@ -1,2 +1,4 @@
 # ignore ALL files in ANY directory named .env
-.env/ 
+.env/
+.env
+package-lock.json

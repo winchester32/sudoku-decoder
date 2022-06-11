@@ -1,14 +1,29 @@
+const innerSquares = 3;
+const lineSquares = innerSquares * innerSquares;
+const totalSquares = lineSquares * lineSquares;
+
+let submission = [];
+
+var size = Math.sqrt(totalSquares) * 50;
+
 const puzzleBoard = document.getElementById("puzzle");
 
 const solvePuzzle = document.getElementById("solve");
-const squares = 81;
-let submission = [];
 
-for (let i = 0; i < squares; i++) {
+// set puzzle board height and width
+puzzleBoard.setAttribute("style", "width:" + size + "px");
+puzzleBoard.setAttribute("style", "height:" + size + "px");
+
+var rowGroup = 0;
+
+for (let i = 0; i < totalSquares; i++) {
   const newElement = document.createElement("input");
   newElement.setAttribute("type", "number");
   newElement.setAttribute("min", "1");
   newElement.setAttribute("max", "9");
+
+  newElement.classList.add("shaded-box");
+
   puzzleBoard.appendChild(newElement);
 }
 
