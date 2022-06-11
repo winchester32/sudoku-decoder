@@ -55,7 +55,10 @@ function populateValues(isSolvable, solution) {
   if (isSolvable && solution) {
     inputs.forEach((input, i) => {
       input.value = solution[i];
-    });
+    })
+  } else {
+ window.alert("not solvable")
+    //console.log('not solved')
   }
 }
 
@@ -86,4 +89,5 @@ function solve() {
       console.error(error);
     });
 }
+
 solvePuzzle.addEventListener("click", solve);

@@ -5,6 +5,7 @@ const express = require("express");
 const { JSON } = require("mysql/lib/protocol/constants/types");
 require("dotenv").config();
 
+
 const app = express();
 
 app.use(cors());
