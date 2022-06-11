@@ -4,28 +4,39 @@ const totalSquares = lineSquares * lineSquares;
 
 let submission = [];
 
-var size = Math.sqrt(totalSquares) * 50;
-
-const puzzleBoard = document.getElementById("puzzle");
-
 const solvePuzzle = document.getElementById("solve");
-
-// set puzzle board height and width
-puzzleBoard.setAttribute("style", "width:" + size + "px");
-puzzleBoard.setAttribute("style", "height:" + size + "px");
 
 var rowGroup = 0;
 
-for (let i = 0; i < totalSquares; i++) {
-  const newElement = document.createElement("input");
-  newElement.setAttribute("type", "number");
-  newElement.setAttribute("min", "1");
-  newElement.setAttribute("max", "9");
+const rows = lineSquares;
+const cols = lineSquares;
 
-  newElement.classList.add("shaded-box");
+const sudokuTable = document.getElementById("sudokuTable");
 
-  puzzleBoard.appendChild(newElement);
+const tbody = document.createElement('tbody');
+
+for (let row = 0; row < cols; row++) {
+  const tr = document.createElement('tr');
+
+  for (let col = 0; col < rows; col++) {
+    const td = document.createElement('td');
+
+    const input = document.createElement('input');
+    input.setAttribute("type", "number");
+    input.setAttribute("min", "1");
+    input.setAttribute("max", "9");
+
+    // input.classList.add("shaded-box");
+
+    td.appendChild(input);
+
+    tr.appendChild(td);
+  }
+
+  tbody.appendChild(tr);
 }
+
+sudokuTable.appendChild(tbody);
 
 function joinValues() {
   const inputs = document.querySelectorAll("input");
